@@ -14,7 +14,6 @@ Url: http://search.cpan.org/dist/%real_name/
 Requires: perl
 BuildRequires: perl-devel
 BuildArch: noarch
-Buildroot: %{_tmppath}/%{name}-root
 
 %description
 HTML::SimpleParse module for Perl
