@@ -1,7 +1,7 @@
 %define real_name HTML-SimpleParse
 %define name perl-%real_name
 %define version 0.12
-%define release %mkrel 5
+%define release %mkrel 6
 
 Summary: HTML::SimpleParse Perl module
 Name: %{name}
