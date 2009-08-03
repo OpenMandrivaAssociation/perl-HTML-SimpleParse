@@ -1,26 +1,24 @@
-%define real_name HTML-SimpleParse
-%define name perl-%real_name
-%define version 0.12
-%define release %mkrel 7
+%define upstream_name    HTML-SimpleParse
+%define upstream_version 0.12
 
-Summary: HTML::SimpleParse Perl module
-Name: %{name}
-Version: %{version}
-Release: %{release}
-License: GPL or Artistic
-Group: Development/Perl
-Source0: %{real_name}-%{version}.tar.bz2
-Url: http://search.cpan.org/dist/%real_name/
-Requires: perl
-BuildRequires: perl-devel
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
+Summary:    HTML::SimpleParse Perl module
+License:    GPL+ or Artistic
+Group:      Development/Perl
+Url:        http://search.cpan.org/dist/%{upstream_name}/
+Source0:    http://www.cpan.org/modules/by-module/HTML/%{upstream_name}-%{upstream_version}.tar.bz2
+
 BuildArch: noarch
-Buildroot: %{_tmppath}/%{name}-root
+Buildroot: %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 HTML::SimpleParse module for Perl
 
 %prep
-%setup -q -n %{real_name}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -41,4 +39,3 @@ rm -rf $RPM_BUILD_ROOT
 %doc README Changes
 %{perl_vendorlib}/HTML/*
 %{_mandir}/*/*
-
